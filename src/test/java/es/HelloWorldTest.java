@@ -10,5 +10,16 @@ public class HelloWorldTest {
 	public void test() {
 		assertNotNull(HelloWorld.teste());
 	}
-
+	
+	
+	@Test
+	public void testMain() {
+		HelloWorld.main(null);
+	}
+	
+	
+	@Test
+	public void testIntance() {
+		assertNotNull(new HelloWorld().testIntance());
+	}
 }

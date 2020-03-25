@@ -9,4 +9,8 @@ public class HelloWorld {
 	public static String teste() {
 		return "Jenkins Test Success!!";
 	}
+	
+	public String testIntance() {
+		return "Success";
+	}
 }
