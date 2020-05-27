@@ -1,12 +1,13 @@
-# Source Image name
-from ubuntu:16.04
-# Mainter Name
-maintainer Amar Singh
-# Command to update and install Apache packages
-RUN apt-get update && apt-get install apache2 -y
-# open port 
-EXPOSE 80
-# Command to run Apache server in background
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+FROM alpine/git
+WORKDIR /app
+RUN git clone "https://github.com/rmsma1-iscteiul/JenkinsTest.git"
 
+FROM maven:3.5-jdk-8-alpine
+WORKDIR /app
+COPY --from=0 /app/JenkinsTest /app 
+RUN mvn clean install package
 
+FROM openjdk:8-jre-alpine
+WORKDIR /app
+COPY --from=1 /app/target/JenkinsTest-0.0.1-SNAPSHOT.jar /app 
+CMD ["java -jar C:\Users\Rui Menoita\git\JenkinsTest\JenkinsTest-0.0.1-SNAPSHOT.jar"]
