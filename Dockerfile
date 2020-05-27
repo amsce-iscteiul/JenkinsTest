@@ -10,4 +10,4 @@ RUN mvn clean install package
 FROM openjdk:8-jre-alpine
 WORKDIR /app
 COPY --from=1 /app/target/JenkinsTest-0.0.1-SNAPSHOT.jar /app 
-CMD ["java -jar C:\Users\Rui Menoita\git\JenkinsTest\JenkinsTest-0.0.1-SNAPSHOT.jar"]
+CMD ["java -jar JenkinsTest-0.0.1-SNAPSHOT.jar"]
