@@ -5,7 +5,7 @@ node {
    echo 'Building Apache Docker Image'
 
 stage('Git Checkout') {
-    git 'https://github.com/rmsma1-iscteiul/JenkinsTest.git'
+    git 'https://github.com/amsce-iscteiul/JenkinsTest.git'
     }
     
 stage('Build Docker Image'){
