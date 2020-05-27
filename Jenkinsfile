@@ -9,10 +9,15 @@ stage('Git Checkout') {
     }
     
 stage('Build Docker Image'){
-     powershell "docker build -t  ${imagename} ."
-    }
+	osascript -e 'tell app "Terminal"
+   		do script "docker build -t  ${imagename}"
+    	end tell'
+    }    
   
 stage ('Runing Container to test built Docker Image'){
-    powershell "docker run -dit --name ${container}"
+	osascript -e 'tell app "Terminal"
+   		do script "docker run -dit --name ${container}"
+    	end tell'
+
     }
 }
