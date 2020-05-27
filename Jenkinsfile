@@ -9,15 +9,13 @@ stage('Git Checkout') {
     }
     
 stage('Build Docker Image'){
-	osascript -e 'tell app "Terminal"
-   		do script "docker build -t  ${imagename}"
-    	end tell'
+	sh 'docker build -t  ${imagename}'
+    	
     }    
   
 stage ('Runing Container to test built Docker Image'){
-	osascript -e 'tell app "Terminal"
-   		do script "docker run -dit --name ${container}"
-    	end tell'
+	sh 'docker run -dit --name ${container}'
+    	
 
     }
 }
